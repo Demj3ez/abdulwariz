@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { projects } from "@/lib/data";
 import { Reveal } from "@/components/reveal";
@@ -23,8 +24,18 @@ export function Projects() {
                 href={`/projects/${project.slug}`}
                 className="focus-ring group card-surface flex h-full flex-col overflow-hidden bg-[var(--paper)] transition-transform duration-300 hover:-translate-y-1 hover:border-[var(--green)]"
               >
-                <div className="flex aspect-[16/10] items-center justify-center bg-[var(--green-tint)]">
-                  <ProjectGlyph type={project.cover} />
+                <div className="relative flex aspect-[16/10] items-center justify-center overflow-hidden bg-[var(--green-tint)] p-3">
+                  {project.image ? (
+                    <Image
+                      src={project.image}
+                      alt={`${project.title} preview`}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="object-contain transition-transform duration-500 group-hover:scale-105"
+                    />
+                  ) : (
+                    <ProjectGlyph type={project.cover} />
+                  )}
                 </div>
                 <div className="flex flex-1 flex-col p-6">
                   <span className="section-label">{project.category}</span>

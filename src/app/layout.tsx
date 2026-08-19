@@ -8,7 +8,7 @@ import "@fontsource/jetbrains-mono/500.css";
 import "./globals.css";
 import { ThemeScript } from "@/components/theme-script";
 
-const siteUrl = "https://abdulwarizyusuff.com";
+const siteUrl = "https://abdulwariz.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   keywords: [
     "Abdulwariz Yusuff",
     "Business Operations Manager",
-    "Project Manager",
+    "Business Development",
     "Digital Marketing Strategist",
     "AI Automation Specialist",
     "n8n automation",

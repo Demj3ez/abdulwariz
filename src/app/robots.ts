@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://abdulwarizyusuff.com/sitemap.xml",
+    sitemap: "https://abdulwariz.vercel.app/sitemap.xml",
   };
 }

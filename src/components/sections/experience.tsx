@@ -5,11 +5,21 @@ export function Experience() {
   return (
     <section id="experience" className="border-b border-[var(--line)] bg-[var(--paper)] py-24">
       <div className="container-px mx-auto max-w-6xl">
-        <Reveal className="max-w-2xl">
-          <span className="section-label">Experience</span>
-          <h2 className="mt-4 text-3xl font-semibold tracking-tight text-[var(--ink)] sm:text-4xl">
-            Where the work has happened.
-          </h2>
+        <Reveal className="flex flex-wrap items-end justify-between gap-4 max-w-2xl">
+          <div>
+            <span className="section-label">Experience</span>
+            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-[var(--ink)] sm:text-4xl">
+              Where the work has happened.
+            </h2>
+          </div>
+        </Reveal>
+        <Reveal delay={0.05}>
+          <a
+            href="#resume"
+            className="focus-ring mt-2 inline-block text-sm text-[var(--ink-soft)] underline decoration-[var(--line)] underline-offset-4 transition-colors hover:text-[var(--green)]"
+          >
+            Full role details in the resume ↓
+          </a>
         </Reveal>
 
         <div className="relative mt-14 max-w-3xl">
@@ -35,35 +45,9 @@ export function Experience() {
                 <p className="mt-1 text-sm font-medium text-[var(--ink-soft)]">
                   {job.org}
                 </p>
-                <p className="mt-3 text-[15px] leading-relaxed text-[var(--ink-soft)]">
+                <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-[var(--ink-soft)]">
                   {job.summary}
                 </p>
-                <ul className="mt-4 grid gap-2 sm:grid-cols-2">
-                  {job.points.map((point) => (
-                    <li
-                      key={point}
-                      className="flex gap-2 text-sm leading-relaxed text-[var(--ink-soft)]"
-                    >
-                      <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-[var(--green)]" />
-                      {point}
-                    </li>
-                  ))}
-                </ul>
-                {job.achievements.length > 0 && (
-                  <div className="mt-4 rounded-xl border border-dashed border-[var(--line)] p-4">
-                    <p className="section-label mb-2">Key achievements</p>
-                    <ul className="space-y-1.5">
-                      {job.achievements.map((a) => (
-                        <li
-                          key={a}
-                          className="text-sm leading-relaxed text-[var(--ink)]"
-                        >
-                          {a}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
               </Reveal>
             ))}
           </div>

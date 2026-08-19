@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight, CheckCircle2 } from "lucide-react";
 import { projects } from "@/lib/data";
@@ -55,8 +56,18 @@ export default async function CaseStudyPage({
               </Link>
 
               <div className="mt-8 flex items-center gap-4">
-                <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-[var(--green-tint)]">
-                  <ProjectGlyph type={project.cover} />
+                <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-[var(--green-tint)] overflow-hidden">
+                  {project.image ? (
+                    <Image
+                      src={project.image}
+                      alt=""
+                      width={64}
+                      height={64}
+                      className="h-full w-full object-cover"
+                    />
+                  ) : (
+                    <ProjectGlyph type={project.cover} />
+                  )}
                 </div>
                 <div>
                   <span className="section-label">{project.category}</span>
@@ -78,6 +89,32 @@ export default async function CaseStudyPage({
             </Reveal>
           </div>
         </section>
+
+        {project.gallery && project.gallery.length > 0 && (
+          <section className="border-t border-[var(--line)] bg-[var(--paper-alt)] py-16">
+            <div className="container-px mx-auto max-w-4xl space-y-10">
+              {project.gallery.map((item, i) => (
+                <Reveal key={item.src} delay={i * 0.05}>
+                  <div className="card-surface overflow-hidden bg-[var(--paper)]">
+                    <div className="relative flex max-h-[75vh] w-full items-center justify-center bg-[var(--paper-alt)] p-4">
+                      <Image
+                        src={item.src}
+                        alt={item.caption}
+                        width={1600}
+                        height={1600}
+                        sizes="(max-width: 896px) 100vw, 896px"
+                        className="h-auto max-h-[70vh] w-auto max-w-full rounded-lg object-contain"
+                      />
+                    </div>
+                    <p className="border-t border-[var(--line)] px-5 py-3 text-sm text-[var(--ink-soft)]">
+                      {item.caption}
+                    </p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </section>
+        )}
 
         <section className="py-16 lg:py-20">
           <div className="container-px mx-auto grid max-w-4xl gap-14">

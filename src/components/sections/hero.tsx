@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { ArrowRight, Download } from "lucide-react";
 import { profile } from "@/lib/data";
 import { Button } from "@/components/ui/button";
@@ -14,14 +15,31 @@ export function Hero() {
     >
       <div className="container-px mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 py-20 lg:grid-cols-[1.1fr_0.9fr] lg:py-28">
         <div>
-          <motion.p
+          <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="eyebrow mb-6"
+            className="mb-6 flex items-center gap-3"
           >
-            Operations · Marketing · Automation
-          </motion.p>
+            <span className="relative inline-flex h-11 w-11 shrink-0 overflow-hidden rounded-full border-2 border-[var(--green)] p-0.5">
+              <span className="relative block h-full w-full overflow-hidden rounded-full">
+                <Image
+                  src={profile.photo}
+                  alt={profile.name}
+                  fill
+                  sizes="44px"
+                  className="object-cover"
+                  priority
+                />
+              </span>
+            </span>
+            <span className="font-mono text-xs uppercase tracking-widest text-[var(--ink-soft)]">
+              <span className="font-semibold normal-case tracking-normal text-[var(--ink)]">
+                {profile.name}
+              </span>{" "}
+              · Operations · Business Development · Marketing · Automation
+            </span>
+          </motion.div>
 
           <motion.h1
             initial={{ opacity: 0, y: 16 }}
@@ -65,16 +83,14 @@ export function Hero() {
             </a>
           </motion.div>
 
-          <motion.div
+          <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-12 flex flex-wrap gap-x-8 gap-y-2 font-mono text-xs uppercase tracking-widest text-[var(--ink-soft)]"
+            className="mt-12 font-mono text-xs uppercase tracking-widest text-[var(--ink-soft)]"
           >
-            {profile.roles.map((role) => (
-              <span key={role}>{role}</span>
-            ))}
-          </motion.div>
+            {profile.roles.join("   |   ")}
+          </motion.p>
         </div>
 
         <motion.div

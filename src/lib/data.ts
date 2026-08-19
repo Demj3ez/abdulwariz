@@ -1,17 +1,18 @@
 export const profile = {
   name: "Abdulwariz Yusuff",
   fullName: "Yusuff Abdulwariz Ademola",
+  photo: "/images/profile/headshot.jpg",
   roles: [
-    "Business Operations Manager",
-    "Project Manager",
-    "Digital Marketing Strategist",
-    "AI & Business Automation Specialist",
+    "Business Operations",
+    "Business Development",
+    "Digital Marketing",
+    "AI Automation",
   ],
   location: "Ibadan, Oyo State, Nigeria",
   email: "abdulwarizy28@gmail.com",
   phone: "+2349036158023",
   whatsapp: "2349036158023",
-  linkedin: "#",
+  linkedin: "https://www.linkedin.com/in/abdulwariz-yusuff-2a9848288",
   github: "#",
   tagline:
     "I help businesses build better systems, improve operations, execute projects efficiently, implement digital marketing strategies, and automate repetitive workflows using AI.",
@@ -158,6 +159,8 @@ export type CaseStudy = {
   summary: string;
   tools: string[];
   cover: string;
+  image?: string;
+  gallery?: { src: string; caption: string }[];
   problem: string;
   challenges: string[];
   approach: string;
@@ -168,6 +171,51 @@ export type CaseStudy = {
 
 export const projects: CaseStudy[] = [
   {
+    slug: "premium-sneakers-operations",
+    title: "Premium Sneakers — E-commerce Operations & Process Improvement",
+    category: "Business Operations",
+    summary:
+      "Managing the full operational flow of an e-commerce footwear business — product, marketing, orders, fulfilment, and delivery — as one connected system.",
+    tools: ["WooCommerce", "WhatsApp Business", "Meta Business Suite", "Google Workspace"],
+    cover: "ops",
+    image: "/images/projects/premium-sneakers-logo.jpg",
+    gallery: [
+      {
+        src: "/images/projects/premium-sneakers-website.jpg",
+        caption: "The Premium Sneakers storefront — product listings, pricing, and availability I manage directly.",
+      },
+      {
+        src: "/images/projects/premium-sneakers-packaging.jpg",
+        caption: "Order fulfilment and packaging — the handoff point between order processing and dispatch.",
+      },
+    ],
+    problem:
+      "E-commerce requires several moving parts to work in sync — accurate product listings, marketing aligned to real stock, fast customer communication, smooth order processing, reliable packaging and delivery, and consistent updates. Without coordination, gaps between these stages lead to delays, errors, and a poor customer experience.",
+    challenges: [
+      "Marketing could promote products faster than stock and listings could keep up with.",
+      "Customer enquiries, confirmations, and payments needed a consistent path so nothing got lost between stages.",
+      "Delivery needed to stay trackable and transparent, not a black box after dispatch.",
+    ],
+    approach:
+      "Manage the business as one connected customer journey rather than separate departments — Product → Website → Marketing → Customer → Order → Payment → Fulfilment → Delivery → Follow-up — with the focus on smooth handoffs between each stage, not just performance within each one.",
+    process: [
+      "Product & website operations: listings, pricing, availability, and product presentation kept current and accurate.",
+      "Digital marketing: social content, promotion, and customer engagement planned around what's actually in stock.",
+      "Customer & order management: enquiry → confirmation → payment → order processing, handled as a single consistent path.",
+      "Fulfilment & packaging: stock verification, packaging, and dispatch coordination for every order.",
+      "Logistics & delivery: courier coordination, delivery tracking, and proactive customer updates.",
+      "Post-purchase: delivery confirmation, feedback, and issue resolution to support retention, not just the sale.",
+    ],
+    results: [
+      "Restructured the order workflow from an ad-hoc 'enquiry → manual communication → order → delivery' process into a clear 'enquiry → confirmation → payment → fulfilment → dispatch → tracking → delivery' pipeline.",
+      "Reduced errors and lost information by giving every order a consistent path from enquiry to delivery.",
+      "Improved delivery transparency through consistent courier coordination and customer updates.",
+    ],
+    lessons:
+      "Most operational problems in e-commerce aren't inside any single stage — they're in the handoffs between stages. Fixing the gaps between marketing, orders, fulfilment, and delivery mattered more than optimizing any one of them in isolation.",
+  },
+
+  {
     slug: "ibadanstayfinder",
     title: "IbadanStayFinder",
     category: "Founder / Operations",
@@ -175,6 +223,7 @@ export const projects: CaseStudy[] = [
       "A technology-driven shortlet booking platform built from the ground up — brand, operations, and partner network included.",
     tools: ["WordPress", "Google Business Profile", "Meta Business Suite", "WhatsApp Business", "Canva"],
     cover: "stay",
+    image: "/images/projects/ibadanstayfinder-logo.jpg",
     problem:
       "Ibadan's short-let rental market ran almost entirely on informal referrals and scattered WhatsApp listings, making it hard for guests to find verified apartments and hard for owners to reach serious renters.",
     challenges: [
@@ -198,34 +247,175 @@ export const projects: CaseStudy[] = [
     lessons:
       "Operational groundwork compounds — the time spent documenting onboarding and support workflows early made every partner and booking added after easier to handle.",
   },
+
   {
-    slug: "student-productivity-platform",
-    title: "Student Productivity Platform",
-    category: "Product / Concept",
+    slug: "digital-marketing-campaigns",
+    title: "IbadanStayFinder WhatsApp Ad Campaigns",
+    category: "Paid Marketing",
     summary:
-      "A concept and early build for a platform helping students plan coursework, track deadlines, and stay organized.",
-    tools: ["WordPress", "Notion", "GitHub"],
-    cover: "study",
+      "Running and comparing Meta ad campaigns to turn ad spend into real WhatsApp booking conversations for IbadanStayFinder.",
+    tools: ["Meta Business Suite", "WhatsApp Business", "Content Marketing", "Copywriting"],
+    cover: "campaign",
+    image: "/images/projects/ibsf-ad-3.jpg",
+    gallery: [
+      {
+        src: "/images/projects/ibsf-ad-2.jpg",
+        caption:
+          "\"Promoting api.whatsapp.com/send\" — 34 conversations started at ₦555.46 each, ₦18,885.72 spent, 8,110 impressions.",
+      },
+      {
+        src: "/images/projects/ibsf-ad-1.jpg",
+        caption:
+          "\"Ongoing send message promotion\" — a smaller-scale test campaign: 8 conversations at ₦523.26 each, ₦4,186.05 spent.",
+      },
+      {
+        src: "/images/projects/ibsf-ad-3.jpg",
+        caption:
+          "\"IBSF | Stay Better | WhatsApp\" — a Leads-objective campaign: 41 leads at ₦151.91 per lead, ₦6,228.35 spent.",
+      },
+    ],
     problem:
-      "Students juggling coursework across multiple platforms had no single place to plan deadlines, track progress, and stay accountable.",
+      "IbadanStayFinder needed ad spend to reliably turn into booking conversations, not just impressions — and it wasn't yet clear which campaign objective would get there most efficiently.",
     challenges: [
-      "Needed a lightweight structure that students would actually keep using past week one.",
-      "Balancing feature scope against a fast, focused build.",
+      "WhatsApp click-to-chat campaigns were producing conversations at a fairly high cost, so the objective itself needed testing, not just the creative.",
+      "Budget was intentionally kept tight (₦2,000/day per campaign), so every naira needed to be tracked against actual conversations or leads, not vanity reach.",
     ],
     approach:
-      "Started from workflow mapping rather than feature lists: how a student actually moves from assignment to submission, then built the simplest structure that supported that flow.",
+      "Ran multiple campaigns in parallel with different objectives — direct \"Send Message\" versus a \"Leads\" form — on matched daily budgets, and let the cost-per-result data decide where to keep spending.",
     process: [
-      "Mapped the student planning workflow end to end.",
-      "Prototyped the information architecture and core screens.",
-      "Built the initial structure on WordPress for fast iteration.",
+      "Launched a \"Send Message\" campaign promoting api.whatsapp.com/send directly and tracked cost per conversation.",
+      "Ran a second, smaller-scale send-message campaign in parallel as a live comparison point.",
+      "Tested a \"Leads\" objective campaign (IBSF | Stay Better) against both, capturing leads through a form instead of a direct chat.",
+      "Reviewed cost-per-conversation and cost-per-lead regularly across all three to decide where budget should keep going.",
     ],
     results: [
-      "Produced a working structure validating the core planning workflow.",
-      "Established a foundation for further feature development.",
+      "83 total WhatsApp conversations and leads generated across three campaigns for a combined spend of roughly ₦29,300.",
+      "The Leads campaign converted at ₦151.91 per lead — well under a third of the cost-per-conversation on the direct message campaigns.",
+      "Reached a combined audience of 9,300+ people across all three campaigns on a modest daily budget.",
     ],
     lessons:
-      "Scoping down to the core workflow first made it much easier to judge what was actually worth building next.",
+      "The Leads objective significantly outperformed direct \"Send Message\" campaigns on cost efficiency for this audience — a reminder to test the campaign objective itself, not just the creative, when a channel isn't converting as expected.",
   },
+
+  {
+    slug: "logistics-ai-automation",
+    title: "Logistics AI Support & Notification System",
+    category: "AI Automation",
+    summary:
+      "A dual-system AI solution for a logistics company: a RAG-powered support chatbot plus a proactive omnichannel shipment-notification engine.",
+    tools: ["n8n", "Qdrant VectorDB", "Gemini LLM", "WhatsApp", "Telegram", "SMS", "Email"],
+    cover: "flow",
+    image: "/images/projects/logistics-automation-cover.jpg",
+    gallery: [
+      {
+        src: "/images/projects/logistics-automation-cover.jpg",
+        caption: "The RAG support chatbot, AI agent, and proactive notification workflows in n8n.",
+      },
+      {
+        src: "/images/projects/logistics-automation-notification.jpg",
+        caption: "An automated delivery update sent to a customer via Telegram.",
+      },
+    ],
+    problem:
+      "The logistics company was overwhelmed by high volumes of shipment status inquiries while simultaneously failing to proactively notify customers of delivery updates — leading to frustration, repeat contacts, and an overloaded support team.",
+    challenges: [
+      "Support was purely reactive — customers had to reach out to check on a shipment instead of being told automatically.",
+      "Company knowledge (policies, FAQs) needed to stay current in the chatbot without manual re-training every time a document changed.",
+      "Notifications needed to reach customers wherever they actually were — WhatsApp, Telegram, SMS, or email — not just one channel.",
+    ],
+    approach:
+      "Built two tightly integrated systems instead of one: a RAG chatbot for the inbound question volume, and a separate proactive notification engine that removes the need for most of those questions to be asked in the first place.",
+    process: [
+      "Built a RAG chatbot that auto-ingests company documents from Google Drive into a Qdrant vector store, so knowledge updates without manual retraining.",
+      "Connected the chatbot to Gemini LLM to answer customer queries 24/7 with context pulled from the vector store.",
+      "Built a proactive tracking workflow that triggers on shipment status events and pulls the relevant order details.",
+      "Wired the notification engine to send the same update simultaneously across WhatsApp, Telegram, SMS, and Email.",
+    ],
+    results: [
+      "80% reduction in inbound support inquiries via proactive notifications.",
+      "24/7 automated customer support with RAG-powered accuracy.",
+      "Omnichannel delivery alerts across WhatsApp, Telegram, SMS & Email.",
+    ],
+    lessons:
+      "Most 'support volume' problems are really 'proactive communication' problems in disguise — automating the update customers were going to ask for anyway removed far more support load than making the chatbot smarter did.",
+  },
+
+  {
+    slug: "rag-knowledge-chatbot",
+    title: "AI Knowledge-Base Chatbot (RAG)",
+    category: "Automation",
+    summary:
+      "A Telegram support chatbot that answers customer questions using a self-updating knowledge base pulled straight from Google Drive.",
+    tools: ["n8n", "Google Drive", "Gemini", "Telegram"],
+    cover: "flow",
+    image: "/images/projects/telegram-rag-chatbot.jpg",
+    gallery: [
+      {
+        src: "/images/projects/telegram-rag-chatbot.jpg",
+        caption:
+          "Two connected n8n workflows: the knowledge-base ingestion pipeline (left) and the Telegram RAG chatbot agent (right).",
+      },
+    ],
+    problem:
+      "Company FAQs and policy documents lived in Google Drive but weren't accessible to the team's Telegram support channel, so the same repetitive questions kept landing on a human to answer.",
+    challenges: [
+      "The knowledge base needed to stay current without manually re-training the bot every time a document changed.",
+      "Answers needed to be grounded in the actual source documents, not the model's general guesses.",
+    ],
+    approach:
+      "Split the system into two connected workflows: one that keeps the knowledge base current, and one that answers questions using it — so updating a policy document never touches the live chat logic.",
+    process: [
+      "A Google Drive trigger watches for file updates and automatically downloads any changed document.",
+      "Each document is chunked with a recursive character text splitter and embedded using Google Gemini.",
+      "The embeddings are stored in a Pinecone vector store as the chatbot's live knowledge base.",
+      "A Telegram-triggered AI Agent (Gemini chat model + short-term memory) retrieves relevant chunks from Pinecone to answer each incoming question, then replies over Telegram.",
+    ],
+    results: [
+      "The knowledge base updates itself automatically whenever a source document changes in Google Drive.",
+      "Delivered accurate, source-grounded answers to FAQs over Telegram without a human in the loop.",
+    ],
+    lessons:
+      "Separating ingestion from the chat workflow made each half far easier to test on its own — and meant a bad edit to a source document couldn't take the whole chatbot down.",
+  },
+
+  {
+    slug: "calendar-scheduling-agent",
+    title: "Calendar & Scheduling AI Agent",
+    category: "Automation",
+    summary:
+      "A Telegram-based AI agent that checks availability, books events, sets reminders, and logs everything to Google Sheets — with built-in error handling.",
+    tools: ["n8n", "Telegram", "Google Calendar", "Google Sheets", "Gemini"],
+    cover: "flow",
+    image: "/images/projects/calendar-ai-agent.jpg",
+    gallery: [
+      {
+        src: "/images/projects/calendar-ai-agent.jpg",
+        caption:
+          "The Calendar AI Agent in n8n, with its calendar, reminder, and sheet-logging tools, plus a dedicated error-handling branch.",
+      },
+    ],
+    problem:
+      "Scheduling requests — checking availability, booking a slot, setting a reminder — were handled through manual back-and-forth messaging, which was slow and easy to lose track of.",
+    challenges: [
+      "The agent needed to reliably pick the right action (check availability vs. create an event vs. set a reminder) from a natural-language message.",
+      "A failed request needed to be reported back to the user, not silently dropped.",
+    ],
+    approach:
+      "Build one Telegram-triggered agent with multiple connected tools rather than several separate bots, and give it a dedicated error branch so failures are still communicated, not hidden.",
+    process: [
+      "A Telegram trigger passes the incoming message to a central Calendar AI Agent node.",
+      "The agent reasons over the request with a Gemini chat model, using short-term memory to keep context across a conversation.",
+      "Based on intent, it calls the matching tool: check availability, create an event, get a daily briefing, or set a reminder.",
+      "Successful actions are logged to Google Sheets and confirmed back to the user; failures route through a dedicated error handler that still replies over Telegram.",
+    ],
+    results: [
+      "Automated scheduling requests that previously required manual back-and-forth messaging.",
+      "Built-in error handling means a failed request still gets a response instead of going silent.",
+    ],
+    lessons:
+      "The error-handling branch mattered as much as the happy-path tools — a scheduling assistant that goes quiet on failure is worse than one that's occasionally slow.",
+  },
+
   {
     slug: "ai-automation-workflows",
     title: "AI Business Automation Workflows",
@@ -255,6 +445,7 @@ export const projects: CaseStudy[] = [
     lessons:
       "The highest-value automations weren't the most technically complex — they were the ones targeting the most frequent, most tedious task.",
   },
+
   {
     slug: "google-business-profile-optimization",
     title: "Google Business Profile Optimization",
@@ -283,34 +474,7 @@ export const projects: CaseStudy[] = [
     lessons:
       "Most local visibility problems are fixed by the fundamentals, not by tactics — completeness and consistency outperform tricks.",
   },
-  {
-    slug: "digital-marketing-campaigns",
-    title: "Digital Marketing Campaigns",
-    category: "Marketing",
-    summary:
-      "Planning and executing social and paid campaigns across client brands, from content strategy through to performance review.",
-    tools: ["Meta Business Suite", "Content Marketing", "Copywriting", "Canva"],
-    cover: "campaign",
-    problem:
-      "Client brands needed consistent, on-strategy content and campaigns rather than one-off posts with no throughline.",
-    challenges: [
-      "Coordinating content creation, scheduling, and stakeholder approval within tight timelines.",
-      "Keeping campaign messaging consistent with each brand's positioning.",
-    ],
-    approach:
-      "Build a content strategy and calendar first, then execute campaigns against it rather than reacting week to week.",
-    process: [
-      "Developed content strategies aligned to each brand's goals.",
-      "Planned and scheduled social media campaigns across channels.",
-      "Coordinated approvals with stakeholders and adjusted based on performance.",
-    ],
-    results: [
-      "Delivered 10+ planned marketing campaigns across client brands.",
-      "Improved client engagement through more consistent digital channels.",
-    ],
-    lessons:
-      "A clear content calendar removes most of the friction in stakeholder approval — everyone can see where a post fits before it's made.",
-  },
+
   {
     slug: "business-operations-improvement",
     title: "Business Operations Improvement",
@@ -339,6 +503,36 @@ export const projects: CaseStudy[] = [
     lessons:
       "Visibility is the prerequisite for improvement — it's hard to fix a process that no one can see clearly yet.",
   },
+
+  {
+    slug: "student-productivity-platform",
+    title: "Student Productivity Platform",
+    category: "Product / Concept",
+    summary:
+      "A concept and early build for a platform helping students plan coursework, track deadlines, and stay organized.",
+    tools: ["WordPress", "Notion", "GitHub"],
+    cover: "study",
+    problem:
+      "Students juggling coursework across multiple platforms had no single place to plan deadlines, track progress, and stay accountable.",
+    challenges: [
+      "Needed a lightweight structure that students would actually keep using past week one.",
+      "Balancing feature scope against a fast, focused build.",
+    ],
+    approach:
+      "Started from workflow mapping rather than feature lists: how a student actually moves from assignment to submission, then built the simplest structure that supported that flow.",
+    process: [
+      "Mapped the student planning workflow end to end.",
+      "Prototyped the information architecture and core screens.",
+      "Built the initial structure on WordPress for fast iteration.",
+    ],
+    results: [
+      "Produced a working structure validating the core planning workflow.",
+      "Established a foundation for further feature development.",
+    ],
+    lessons:
+      "Scoping down to the core workflow first made it much easier to judge what was actually worth building next.",
+  },
+
 ];
 
 export const services = [
@@ -374,27 +568,6 @@ export const services = [
   },
 ];
 
-export const testimonials = [
-  {
-    quote:
-      "Wariz brought structure to a team that badly needed it. Reporting that used to take days now takes an afternoon.",
-    name: "Operations Lead",
-    context: "Logistics client",
-  },
-  {
-    quote:
-      "He doesn't just run campaigns — he asks what the business is actually trying to achieve first. That changed how we worked with him.",
-    name: "Marketing Director",
-    context: "Retail brand",
-  },
-  {
-    quote:
-      "The automation he built saved our team hours every week on tasks nobody wanted to do. It just runs now.",
-    name: "Founder",
-    context: "Early-stage startup",
-  },
-];
-
 export const nav = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
@@ -402,6 +575,5 @@ export const nav = [
   { label: "Projects", href: "#projects" },
   { label: "Skills", href: "#skills" },
   { label: "Services", href: "#services" },
-  { label: "Testimonials", href: "#testimonials" },
   { label: "Contact", href: "#contact" },
 ];
